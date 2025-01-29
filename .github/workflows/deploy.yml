@@ -7,9 +7,16 @@ on:
             - staging
 
 jobs:
-    echo_hello:
-        if: github.event.pull_request.merged == true
+    deploy-staging:
         runs-on: ubuntu-latest
+        environment: Staging
         steps:
-          - name: Echo Hello
-            run: echo 'hello'
+            - name: Echo Hello
+              run: echo "Deploying to Staging"
+
+    deploy-production:
+        runs-on: ubuntu-latest
+        environment: Production
+        steps:
+            - name: Echo Hello
+              run: echo "Deploying to Production"
