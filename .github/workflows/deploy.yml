@@ -1,0 +1,15 @@
+name: Echo Hello on PR Merge to Staging
+
+on:
+    pull_request:
+        types: [closed]
+        branches:
+            - staging
+
+jobs:
+    echo_hello:
+        if: github.event.pull_request.merged == true
+        runs-on: ubuntu-latest
+        steps:
+          - name: Echo Hello
+            run: echo 'hello'
